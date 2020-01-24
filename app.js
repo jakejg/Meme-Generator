@@ -13,6 +13,7 @@ form.addEventListener('submit', e =>{
     let container = document.createElement('div')
         bigContainer.append(container)
         container.className = "image-container"
+    
 
     //create image 
     let memeImg = document.createElement('img')
@@ -32,8 +33,34 @@ form.addEventListener('submit', e =>{
 
 })
 
+bigContainer.addEventListener('click', e=> {
+    if (e.target.tagName === 'I') {
+        e.target.parentElement.remove();
+    }
+})
+
+button.addEventListener('click', e=> {
+    if (deleteToggle){
+        imageContainer=document.querySelectorAll('.image-container');
+            for (image of imageContainer){
+                let trash = document.createElement('i');
+                    trash.className = "fas fa-trash";
+                    image.append(trash);
+                    deleteToggle = false;
+            }  
+    }
+    else {
+        imageContainer=document.querySelectorAll('.image-container');
+            for (image of imageContainer){
+                image.lastElementChild.remove()
+                    deleteToggle = true;
+    }  
+
+    }
+})
 
 
+/*
 button.addEventListener('click', e =>{
     let containers = document.querySelectorAll('.image-container')
     // Toggle delete on
@@ -57,7 +84,6 @@ button.addEventListener('click', e =>{
                    deleteToggle = true
          }
                                          })
-    
-
+    */
    
 
