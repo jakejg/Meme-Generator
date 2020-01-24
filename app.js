@@ -3,8 +3,7 @@ const link = document.querySelector('#link')
 const topText = document.querySelector('#texttop')
 const bottomText = document.querySelector('#textbottom')
 const bigContainer = document.querySelector('.box')
-const button = document.querySelector('button')
-let deleteToggle = true;
+
 
 
 form.addEventListener('submit', e =>{
@@ -13,7 +12,10 @@ form.addEventListener('submit', e =>{
     let container = document.createElement('div')
         bigContainer.append(container)
         container.className = "image-container"
-    
+    let trash = document.createElement('i');
+        trash.className = "fas fa-trash";
+        trash.classList.toggle('hide')
+        container.append(trash)
 
     //create image 
     let memeImg = document.createElement('img')
@@ -34,14 +36,21 @@ form.addEventListener('submit', e =>{
 })
 
 bigContainer.addEventListener('click', e=> {
-    if (e.target.tagName === 'I') {
-        e.target.parentElement.remove();
+    if (e.target.tagName === 'IMG'){
+      icon = e.target.previousElementSibling
+      icon.classList.toggle('hide')
     }
+    if (e.target.tagName === 'I') {
+       e.target.parentElement.remove();
+   }
 })
 
+
+    
+/*
 button.addEventListener('click', e=> {
     if (deleteToggle){
-        imageContainer=document.querySelectorAll('.image-container');
+        imageContainer = document.querySelectorAll('.image-container');
             for (image of imageContainer){
                 let trash = document.createElement('i');
                     trash.className = "fas fa-trash";
@@ -50,11 +59,13 @@ button.addEventListener('click', e=> {
             }  
     }
     else {
-        imageContainer=document.querySelectorAll('.image-container');
+        imageContainer = document.querySelectorAll('.image-container');
             for (image of imageContainer){
-                image.lastElementChild.remove()
+                if (image.lastElementChild.tagName === "I"){
+                    image.lastElementChild.remove()
+                }
                     deleteToggle = true;
-    }  
+            }  
 
     }
 })
