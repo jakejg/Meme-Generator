@@ -37,64 +37,13 @@ form.addEventListener('submit', e =>{
 
 bigContainer.addEventListener('click', e=> {
     if (e.target.tagName === 'IMG'){
-      icon = e.target.previousElementSibling
-      icon.classList.toggle('hide')
+        icon = e.target.previousElementSibling;
+        icon.classList.toggle('hide');
     }
     if (e.target.tagName === 'I') {
-       e.target.parentElement.remove();
+        e.target.parentElement.remove();
    }
 })
 
 
-    
-/*
-button.addEventListener('click', e=> {
-    if (deleteToggle){
-        imageContainer = document.querySelectorAll('.image-container');
-            for (image of imageContainer){
-                let trash = document.createElement('i');
-                    trash.className = "fas fa-trash";
-                    image.append(trash);
-                    deleteToggle = false;
-            }  
-    }
-    else {
-        imageContainer = document.querySelectorAll('.image-container');
-            for (image of imageContainer){
-                if (image.lastElementChild.tagName === "I"){
-                    image.lastElementChild.remove()
-                }
-                    deleteToggle = true;
-            }  
-
-    }
-})
-
-
-/*
-button.addEventListener('click', e =>{
-    let containers = document.querySelectorAll('.image-container')
-    // Toggle delete on
-    if(deleteToggle){
-        for(image of containers){
-            image.innerHTML += `<i class="fas fa-trash"></i>`
-             //remove a meme
-            image.addEventListener('click', e =>{
-                if (e.target.tagName === "I"){
-                    e.target.parentElement.remove()}
-                                              })
-                                 }
-        deleteToggle=false
-                     }
-        //Toggle delete off
-
-    else{
-        for(image of containers){
-                if (image.lastElementChild.tagName === "I"){
-                     image.lastElementChild.remove()}}
-                   deleteToggle = true
-         }
-                                         })
-    */
-   
 
